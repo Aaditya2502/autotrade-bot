@@ -1,0 +1,37 @@
+# ── Core ────────────────────────────────────────────
+python-dotenv>=1.0.0
+loguru==0.7.2
+
+# ── Data & Analysis ──────────────────────────────────
+pandas>=2.2.3
+numpy>=2.2.6
+pandas-ta>=0.4.71b0
+requests>=2.32.3
+
+# ── Market Data ──────────────────────────────────────
+yfinance>=0.2.40              # Free NSE/BSE stock data — no account needed
+python-binance==1.0.19        # Binance crypto data
+
+# ── Broker APIs (Phase 7 — live trading) ─────────────
+kiteconnect==5.0.1            # Zerodha Kite — add keys when you open account
+
+# ── Database ─────────────────────────────────────────
+SQLAlchemy==2.0.36
+aiosqlite==0.20.0
+
+# ── Scheduler ────────────────────────────────────────
+APScheduler==3.10.4
+
+# ── Backtesting ──────────────────────────────────────
+backtrader==1.9.78.123
+
+# ── Dashboard ────────────────────────────────────────
+streamlit>=1.40.0
+plotly>=5.24.1
+
+# ── Alerts ───────────────────────────────────────────
+python-telegram-bot>=21.6
+
+# ── Testing ──────────────────────────────────────────
+pytest>=8.3.3
+pytest-asyncio>=0.24.0

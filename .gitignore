@@ -1,0 +1,41 @@
+# ── CRITICAL: Never commit secrets ───────────────────
+.env
+*.env
+secrets.py
+
+# ── Python ───────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# ── Data & Logs ──────────────────────────────────────
+data/raw/
+data/processed/
+logs/
+*.log
+*.db
+*.sqlite3
+
+# ── Notebooks ────────────────────────────────────────
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints
+
+# ── IDE ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ── Testing ──────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/

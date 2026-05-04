@@ -36,7 +36,7 @@ st.set_page_config(
 
 try:
     from streamlit_autorefresh import st_autorefresh
-    st_autorefresh(interval=10_000, key="autorefresh")
+    st_autorefresh(interval=120_000, key="autorefresh")
 except ImportError:
     pass
 

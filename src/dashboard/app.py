@@ -16,6 +16,7 @@ from src.execution.paper_trader  import PaperTrader, STOCK_WATCHLIST, CRYPTO_WAT
 from src.execution.trade_logger  import TradeLogger
 from src.strategy.engine         import StrategyEngine
 from src.data.fetcher            import DataFetcher
+from src.data.live_feed          import get_live_feed
 from config.settings             import settings
 
 # ── Page ──────────────────────────────────────────────────────────
@@ -272,6 +273,37 @@ with k5: st.metric("Win Rate",     f"{stats.get('win_rate_pct', 0):.0f}%")
 with k6: st.metric("Daily Loss",   f"{cb['daily_loss_pct']:.2f}%", f"limit {cb['max_daily_loss_pct']}%")
 
 st.markdown("<hr>", unsafe_allow_html=True)
+
+# ── Live price ticker ────────────────────────────────────────────
+live_feed = get_live_feed()
+live_prices = live_feed.get_all_prices()
+
+if live_prices:
+    st.markdown("### 💹 Live Prices")
+    all_syms = STOCK_WATCHLIST + CRYPTO_WATCHLIST
+    cols = st.columns(len(all_syms))
+    for i, sym in enumerate(all_syms):
+        price = live_prices.get(sym)
+        label = sym.replace(".NS","").replace(".BO","")
+        with cols[i]:
+            if price:
+                is_crypto = sym.endswith("USDT")
+                prefix = "🪙" if is_crypto else "📊"
+                st.markdown(f"""
+                <div style="background:var(--bg2);border:1px solid var(--border);
+                            border-radius:8px;padding:10px 12px;text-align:center;">
+                  <div style="font-size:10px;color:var(--muted);">{prefix} {label}</div>
+                  <div style="font-family:var(--mono);font-size:14px;font-weight:700;
+                              color:var(--green);">₹{price:,.2f}</div>
+                </div>""", unsafe_allow_html=True)
+            else:
+                st.markdown(f"""
+                <div style="background:var(--bg2);border:1px solid var(--border);
+                            border-radius:8px;padding:10px 12px;text-align:center;">
+                  <div style="font-size:10px;color:var(--muted);">{label}</div>
+                  <div style="font-family:var(--mono);font-size:13px;color:var(--muted);">—</div>
+                </div>""", unsafe_allow_html=True)
+    st.markdown("<hr>", unsafe_allow_html=True)
 
 # ── Main tabs ─────────────────────────────────────────────────────
 tab1, tab2, tab3, tab4 = st.tabs(["📡  Signals", "💼  Positions", "📋  Trades", "📈  Charts"])

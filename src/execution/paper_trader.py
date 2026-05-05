@@ -23,7 +23,7 @@ from config.settings               import settings
 from apscheduler.schedulers.blocking   import BlockingScheduler
 from apscheduler.schedulers.background import BackgroundScheduler
 
-STOCK_WATCHLIST  = ["RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "ICICIBANK.NS"]
+STOCK_WATCHLIST  = ["RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "ICICIBANK.NS", "ZOMATO.NS", "TATAMOTORS.NS", "WIPRO.NS", "BAJFINANCE.NS", "NIFTYBEES.NS"]
 CRYPTO_WATCHLIST = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT"]
 
 

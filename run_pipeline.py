@@ -22,11 +22,18 @@ from src.utils.logger import logger
 # ── Your Watchlist — edit freely ─────────────────────────────────
 
 STOCKS = [
-    "RELIANCE.NS",   # Reliance Industries
-    "TCS.NS",        # Tata Consultancy Services
-    "INFY.NS",       # Infosys
-    "HDFCBANK.NS",   # HDFC Bank
-    "ICICIBANK.NS",  # ICICI Bank
+    # Original 5
+    "RELIANCE.NS",    # Reliance Industries
+    "TCS.NS",         # Tata Consultancy Services
+    "INFY.NS",        # Infosys
+    "HDFCBANK.NS",    # HDFC Bank
+    "ICICIBANK.NS",   # ICICI Bank
+    # New additions
+    "ZOMATO.NS",      # Zomato — high volatility, great for signals
+    "TATAMOTORS.NS",  # Tata Motors — large cap, liquid
+    "WIPRO.NS",       # Wipro — IT sector
+    "BAJFINANCE.NS",  # Bajaj Finance — very active
+    "NIFTYBEES.NS",   # Nifty 50 ETF — tracks the index
 ]
 
 CRYPTO = [
